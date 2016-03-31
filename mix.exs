@@ -31,7 +31,7 @@ defmodule Airtable.Mixfile do
       {:httpoison, "~> 0.8"},
       {:credo, "~> 0.2", only: [:test,:dev]},
       {:coverex, "~> 1.4", only: :test},
-      {:mix_test_watch, ">= 0.2", only: [:dev, :test]},
+      {:mix_test_watch, ">= 0.0.0", only: [:dev, :test]},
       {:power_assert, ">= 0.0.0"},
       {:poison, "~> 1.5"}
     ]
