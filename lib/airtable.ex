@@ -11,6 +11,15 @@ defmodule Airtable do
      {:ok, records}
   end
 
+  def fetch_record(table_name, id: id) do
+    record = build_url(table_name) <>  "/" <> id
+      |> Airtable.get
+      |> handle_response
+      |> Poison.decode!
+    {:ok, record}
+  end
+
+
   def build_url(table) do
     base = Application.get_env(:airtable, :base)
     "https://api.airtable.com/v0/#{base}/#{table}"
