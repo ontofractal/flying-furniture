@@ -32,3 +32,7 @@ defmodule Airtable do
 
 
 end
+
+defmodule Airtable.Record do
+  defstruct [id: "", fields: %{}, created_time: ""]
+end
