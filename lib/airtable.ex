@@ -5,6 +5,7 @@ defmodule Airtable do
      records = build_url(table_name)
        |> Airtable.get
        |> handle_response
+       |> Enum.map(&Airtable.Record.new/1)
      {:ok, records}
   end
 
@@ -34,7 +35,7 @@ defmodule Airtable do
 end
 
 defmodule Airtable.Record do
-  use ExConstructor
-
   defstruct [id: "", fields: %{}, created_time: ""]
+
+  use ExConstructor
 end
