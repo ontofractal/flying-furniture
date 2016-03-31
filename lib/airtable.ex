@@ -5,6 +5,8 @@ defmodule Airtable do
      records = build_url(table_name)
        |> Airtable.get
        |> handle_response
+       |> Poison.decode!
+       |> Map.get("records")
        |> Enum.map(&Airtable.Record.new/1)
      {:ok, records}
   end
@@ -23,7 +25,7 @@ defmodule Airtable do
   defp handle_response(response) do
     case response do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        Poison.decode!(body)
+        body
       {:ok, %HTTPoison.Response{status_code: status_code}} ->
         raise "Airtable error: status code #{status_code}"
       {:error, %HTTPoison.Error{reason: reason}} ->
