@@ -33,6 +33,7 @@ defmodule Airtable.Mixfile do
       {:coverex, "~> 1.4", only: :test},
       {:mix_test_watch, ">= 0.0.0", only: [:dev, :test]},
       {:power_assert, ">= 0.0.0"},
+      {:exconstructor, ">= 1.0.0"},
       {:poison, "~> 1.5"}
     ]
   end

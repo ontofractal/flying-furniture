@@ -34,5 +34,7 @@ defmodule Airtable do
 end
 
 defmodule Airtable.Record do
+  use ExConstructor
+
   defstruct [id: "", fields: %{}, created_time: ""]
 end
